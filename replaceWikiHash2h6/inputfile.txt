@@ -1,0 +1,13 @@
+# はじめに
+hogehoge
+
+# コード
+fugafuga
+
+{code}
+#!/bin/sh
+...
+{code}
+
+# 終わり
+piyo
