@@ -51,6 +51,10 @@ curl_setopt($ch, CURLOPT_HTTPGET, TRUE);
 
 $str = curl_exec($ch);
 
+curl_close($ch);
+
+//Cookieの削除
+unlink('./cookie');
 
 //DOM解析部分
 $html = str_get_html($str);
@@ -125,5 +129,7 @@ ICAL;
 
 $ical .= 'END:VCALENDAR';
 
+
+//unlink('./cookie') or die;
 header('Content-Type: text/calendar; charset=utf-8'); 
 echo $ical; 
