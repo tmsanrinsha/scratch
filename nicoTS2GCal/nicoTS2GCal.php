@@ -4,7 +4,6 @@ require_once "config.php";
 
 $mail = MAIL_ADDRESS;
 $password = PASSWORD;
-//$video_id = "nm3788552";
 
 $param = array(
 "mail" => $mail,
@@ -127,7 +126,5 @@ ICAL;
 
 $ical .= 'END:VCALENDAR';
 
-
-//unlink('./cookie') or die;
 header('Content-Type: text/calendar; charset=utf-8'); 
 echo $ical; 
