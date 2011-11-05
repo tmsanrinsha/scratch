@@ -44,8 +44,6 @@ curl_setopt($ch, CURLOPT_POST, 0);
 curl_setopt($ch, CURLOPT_POSTFIELDS, array());
 
 // セッションを持続させるため、curlのハンドラーを再利用する
-// ＡＰＩのＵＲＬを呼び出す
-//curl_setopt($ch, CURLOPT_URL, "http://www.nicovideo.jp/api/getflv?v=" . $video_id);
 curl_setopt($ch, CURLOPT_URL, "http://live.nicovideo.jp/my?mypage_top");
 curl_setopt($ch, CURLOPT_HTTPGET, TRUE);
 
