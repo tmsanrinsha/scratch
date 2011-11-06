@@ -1,4 +1,5 @@
 <?php
+
 require_once "simple_html_dom.php";
 require_once "config.php";
 
@@ -59,17 +60,20 @@ $html = str_get_html($str);
 $calendar = array();
 
 foreach ($html->find('div[class=column]') as $column) {
-    foreach($column->find('div[class=name] a') as $name) { 
-        $title = $name->innertext; 
-    } 
     foreach($column->find('div[class=status] span') as $status) { 
-        preg_match('|\[(\d{4})/(\d{2})/(\d{2}).*?(\d{2}):(\d{2})|', $status->innertext, $matches); 
+        //時間の取得。予約じゃない場合は無視
+        if(preg_match('|\[(\d{4})/(\d{2})/(\d{2}).*?(\d{2}):(\d{2})放送開始|', $status->innertext, $matches ) === 0) {
+            continue 2; 
+        }
         $date = array('yy' => $matches[1],
                       'mm' => $matches[2],
                       'dd' => $matches[3],
                       'hh' => $matches[4],
                       'ii' => $matches[5]
                   );
+    } 
+    foreach($column->find('div[class=name] a') as $name) { 
+        $title = $name->innertext; 
     } 
     $calendar[] = array('title' => $title, 'date' => $date);
 }
