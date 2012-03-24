@@ -3,7 +3,8 @@
 require_once "simple_html_dom.php";
 require_once "config.php";
 
-$mail = MAIL_ADDRESS;
+
+$mail = MAIL_ADDRESS
 $password = PASSWORD;
 
 $param = array(
